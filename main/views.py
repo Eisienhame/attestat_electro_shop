@@ -4,7 +4,7 @@ from rest_framework.permissions import IsAuthenticated
 
 from main.models import Contacts, Products, Seller
 from main.paginators import ContactsPaginator, ProductsPaginator, SellerPaginator
-from main.serializers import ContactsSerializer, ProductsSerializer, SellerSerializer
+from main.serializers import ContactsSerializer, ProductsSerializer, SellerSerializer, SellerArrearsSerializer
 
 
 class SellerCreateApiView(generics.CreateAPIView):
@@ -26,14 +26,14 @@ class SellerListApiView(generics.ListAPIView):
 
 
 class SellerRetrieveApiView(generics.RetrieveAPIView):
-    serializer_class = SellerSerializer
+    serializer_class = SellerArrearsSerializer
     queryset = Seller.objects.all()
     permission_classes = [IsAuthenticated]
     pagination_class = SellerPaginator
 
 
 class SellerUpdateApiView(generics.UpdateAPIView):
-    serializer_class = SellerSerializer
+    serializer_class = SellerArrearsSerializer
     queryset = Seller.objects.all()
     permission_classes = [IsAuthenticated]
     pagination_class = SellerPaginator

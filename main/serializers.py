@@ -21,3 +21,9 @@ class SellerSerializer(serializers.ModelSerializer):
         model = Seller
         fields = '__all__'
 
+
+class SellerArrearsSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Seller
+        exclude = ['arrears']
