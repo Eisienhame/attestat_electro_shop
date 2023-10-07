@@ -14,7 +14,7 @@ class ProductsAdmin(admin.ModelAdmin):
 
 @admin.register(Seller)
 class SellerAdmin(admin.ModelAdmin):
-    list_display = ('name', 'contacts', 'products', 'supplier', 'arrears', 'author')
+    list_display = ('name', 'type', 'contacts', 'products', 'supplier', 'arrears', 'author')
 
     def products(self, row):
         return ','.join([x.product for x in row.products.all()])

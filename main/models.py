@@ -3,6 +3,7 @@ from users.models import User
 from datetime import datetime, date
 from decimal import Decimal
 
+
 NULLABLE = {'null': True, 'blank': True}
 
 
@@ -28,6 +29,7 @@ class Seller(models.Model):
     ]
 
     name = models.CharField(max_length=150, verbose_name='Название')
+    type = models.CharField(choices=CHOICES_STATUS, verbose_name='Тип продавца')
     contacts = models.ForeignKey(Contacts, on_delete=models.CASCADE, verbose_name='Контакты', **NULLABLE)
     products = models.ManyToManyField(Products, on_delete=models.CASCADE, verbose_name='Продукты', **NULLABLE)
     supplier = models.ForeignKey('self', on_delete=models.CASCADE, verbose_name='Поставщик', **NULLABLE)
