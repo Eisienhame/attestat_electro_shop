@@ -30,10 +30,9 @@ class Seller(models.Model):
 
     name = models.CharField(max_length=150, verbose_name='Название')
     type = models.CharField(choices=CHOICES_STATUS, verbose_name='Тип продавца')
-    contacts = models.ForeignKey(Contacts, on_delete=models.CASCADE, verbose_name='Контакты', **NULLABLE)
-    products = models.ManyToManyField(Products, on_delete=models.CASCADE, verbose_name='Продукты', **NULLABLE)
+    contacts = models.ForeignKey(Contacts, on_delete=models.CASCADE, verbose_name='Контакты')
+    products = models.ManyToManyField(Products)
     supplier = models.ForeignKey('self', on_delete=models.CASCADE, verbose_name='Поставщик', **NULLABLE)
     author = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Создатель', **NULLABLE)
     arrears = models.DecimalField(max_digits=15, decimal_places=2, default=Decimal('0.00'))
-    create_time = models.TimeField(default=datetime.now, verbose_name='Время создания')
-
+    create_time = models.DateTimeField(default=datetime.now, verbose_name='Время создания')

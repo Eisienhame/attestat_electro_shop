@@ -1,5 +1,5 @@
 from django.contrib import admin
-from models import Products, Contacts, Seller
+from main.models import Products, Contacts, Seller
 
 
 @admin.register(Contacts)
@@ -17,6 +17,7 @@ class ProductsAdmin(admin.ModelAdmin):
 @admin.register(Seller)
 class SellerAdmin(admin.ModelAdmin):
     list_display = ('name', 'type', 'contacts', 'products', 'supplier', 'arrears', 'author')
+    list_filter = ['contacts']
 
     def products(self, row):
         return ','.join([x.product for x in row.products.all()])

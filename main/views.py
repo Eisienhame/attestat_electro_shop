@@ -137,5 +137,3 @@ class ProductsDeleteApiView(generics.DestroyAPIView):
     queryset = Products.objects.all()
     permission_classes = [IsAuthenticated | ModeratorsPermissions | UsersPermissions]
     pagination_class = ProductsPaginator
-
-
