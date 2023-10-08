@@ -23,7 +23,7 @@ class SellerSerializer(serializers.ModelSerializer):
 
 
 class SellerArrearsSerializer(serializers.ModelSerializer):
-
+    """ Специальный, чтобы нельзя было через API трогать arrears """
     class Meta:
         model = Seller
         exclude = ['arrears']
