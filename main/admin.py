@@ -5,6 +5,8 @@ from models import Products, Contacts, Seller
 @admin.register(Contacts)
 class ContactsAdmin(admin.ModelAdmin):
     list_display = ('email', 'country', 'city', 'street', 'house_number')
+    list_filter = ['country']
+    search_fields = ['city']
 
 
 @admin.register(Products)
